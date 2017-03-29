@@ -2,7 +2,7 @@
 
 // var openpgp = require('openpgp'); // use as CommonJS, AMD, ES6 module or via window.openpgp
 openpgp.initWorker({ path:'openpgp.worker.js' }) // set the relative web worker path
-openpgp.config.aead_protect = true // activate fast AES-GCM mode (not yet OpenPGP standard)
+// openpgp.config.aead_protect = true // activate fast AES-GCM mode (not yet OpenPGP standard)
 
 encrypt.onclick = function(event) {
     var options;
