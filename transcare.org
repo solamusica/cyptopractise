@@ -34,3 +34,74 @@ CLOSED: [2017-03-29 Wed 10:29]
 :LOGBOOK:
 - CLOSING NOTE [2017-03-29 Wed 10:29]
 :END:
+
+* test versus gpg
+:PROPERTIES:
+:ID:       3cd69ce5-4799-49f8-8fee-41434142b6fb
+:END:
+
+#+begin_src text :tangle test/plaintext
+plaintext foo
+#+end_src
+
+#+begin_src shell :results drawer
+cat test/plaintext
+#+end_src
+
+#+RESULTS:
+:RESULTS:
+plaintext foo
+:END:
+
+#+begin_src shell :results silent
+gpg --symmetric --armor --cipher-algo AES < test/plaintext > test/encrypted-text
+#+end_src
+
+#+begin_src shell :results drawer
+cat test/encrypted-text
+#+end_src
+
+#+RESULTS:
+:RESULTS:
+-----BEGIN PGP MESSAGE-----
+Version: OpenPGP.js v2.5.2
+Comment: http://openpgpjs.org
+
+wy4ECQMIpWcFRJfxXx1gDoCIz82UiWWevQWt7FeD9BLq9cipoWFf3Bj23aFH
+xDgU0kEB0o97lNasGBl8zKghs2r8zCcLH7AdhQPaGVINeO86xfnAyJVLZuse
+5EWCOR3XZEAYxOlvYX8HhYf0qcQBCbec7Q==
+=nitt
+-----END PGP MESSAGE-----
+:END:
+
+#+begin_src shell
+gpg < test/encrypted-text
+#+end_src
+
+#+RESULTS:
+: plaintext
+
+* lucius tests
+
+Also,  ich habe jetzt alles mögliche probiert, aber keinen Hinweis gefunden, was das Problem sein könnte.
+
+Folgende Tests habe ich gemacht:
+
+1. Kommentare aus OpenPGP-Version entfernt
+2. Mehr Text als Ausgangsbasis
+3. Längeres Passwort (statt nur "test")
+4. --verbose : da passiert gar nichts
+5. --interactive : da passiert auch nichts
+6. Mit GnuPG eine Datei mit AES256 verschlüsselt und dann wieder entschlüsselt (FUNZT)
+7. Nach "GnuPG AES256 symmetric problem" und dergleichen mehr gegoogled - auch nix
+
+Es tut sich rein gar nichts. Keine Fehlermeldung, kein Hinweis, keine Verhaltensänderung, nix.
+
+Ich würde als nächstes einfach mal den Cipher ändern und auf CAT5 gehen und sehen, was passiert.
+
+Mein Verdacht ist, dass OpenPGP die Passwörter anders verschlüsselt, als GnuPG es erwartet,
+z.B. in dem gesalzen oder anders gesalzen wird.
+
+Mir scheint, bevor man jetzt ganz tief in den opengpg.js-Code und/oder
+den GnuPG-Code einsteigt, sollten wir erstaml einfach einen anderen
+Cypher versuchen. E
