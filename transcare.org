@@ -1,0 +1,36 @@
+* DONE Verschlüsselungsseite erstellen
+CLOSED: [2017-03-29 Wed 10:29]
+:PROPERTIES:
+:ORDERED:  t
+:END:
+:LOGBOOK:
+- CLOSING NOTE [2017-03-29 Wed 10:29] \\
+  seite steht bereit mit eingabe/ausgabe feld plus ver und
+  entschluesselungsfunktion
+:END:
+
+*** DONE Seite erstellen
+CLOSED: [2017-03-28 Tue 22:14]
+:LOGBOOK:
+- CLOSING NOTE [2017-03-28 Tue 22:14]
+CLOCK: [2017-03-28 Tue 21:49]--[2017-03-28 Tue 22:14] =>  0:25
+:END:
+
+Box fuer Text.
+Box fuer Passwort.
+Button fuer Verschlüsselung.
+Button fuer Entschlüsselung.
+
+*** DONE Spaßimplementierung auf Buttons
+CLOSED: [2017-03-29 Wed 10:29]
+:LOGBOOK:
+- CLOSING NOTE [2017-03-29 Wed 10:29]
+CLOCK: [2017-03-28 Tue 22:14]
+:END:
+
+
+*** DONE openpgpjs einbauen
+CLOSED: [2017-03-29 Wed 10:29]
+:LOGBOOK:
+- CLOSING NOTE [2017-03-29 Wed 10:29]
+:END:

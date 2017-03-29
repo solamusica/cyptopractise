@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link href="main.css" rel="stylesheet" type="text/css">
+  </head>
+  <title>cryptofun</title>
+  <body>
+    <div class="textzone">
+      <label>eingabe
+      <textarea id="input"></textarea>
+      </label>
+    </div>
+    <hr/>
+    <div>
+      <label>passwort<input name="password" type="password" id="password"></label>
+      <button id="encrypt">verschluesseln</button>
+      <button id="decrypt">entschluesseln</button>
+    </div>
+    <hr/>
+    <div class="textzone">
+      <label>ausgabe
+      <textarea id="output"></textarea>
+      </label>
+      <button id="move_out_to_in">ausgabe werde eingabe</button>
+    </div>
+    <script src="openpgp.js" type="text/javascript"></script>
+    <script src="main.js" type="text/javascript"></script>
+  </body>
+</html>
